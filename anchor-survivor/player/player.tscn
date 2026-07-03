@@ -42,14 +42,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2dego"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1827598897]
-scale = Vector2(6, 6)
+scale = Vector2(4, 4)
 script = ExtResource("1_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=675946307]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_3pdtb")
 animation = &"idle"
-autoplay = "idle"
 frame_progress = 0.7528497
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=649698232]
