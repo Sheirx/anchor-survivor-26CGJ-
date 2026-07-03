@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://vmajmn0sffvo"]
 
+[ext_resource type="Texture2D" uid="uid://cn1e7od7xvng5" path="res://assets/placeholders/graphics/ground/stones.png" id="1_6psl4"]
+[ext_resource type="PackedScene" uid="uid://cq8vhpi3wsopo" path="res://player/player.tscn" id="2_n6n52"]
+
 [node name="MainLevel" type="Node2D" unique_id=1259872963]
+
+[node name="World" type="Node2D" parent="." unique_id=1516665127]
+
+[node name="Sprite2D" type="Sprite2D" parent="World" unique_id=1008306715]
+texture = ExtResource("1_6psl4")
+
+[node name="Player" parent="." unique_id=1827598897 instance=ExtResource("2_n6n52")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2008547126]
+position = Vector2(50.666668, -0.33333334)
