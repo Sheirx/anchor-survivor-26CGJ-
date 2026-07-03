@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="anchor survivor"
-run/main_scene="uid://cq8vhpi3wsopo"
+run/main_scene="uid://vmajmn0sffvo"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*uid://dklenvpk8k2po"
 
 [display]
 
