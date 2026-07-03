@@ -20,6 +20,8 @@ position = Vector2(408.99997, -31.000015)
 scale = Vector2(0.21907753, 0.18035187)
 texture = ExtResource("3_n6n52")
 
+[node name="EnemyContainer" type="Node2D" parent="World" unique_id=1486151310]
+
 [node name="Player" parent="." unique_id=1827598897 instance=ExtResource("2_n6n52")]
 position = Vector2(3.0517578e-05, -2.9802322e-06)
 scale = Vector2(3.9999986, 3.9999986)
@@ -27,3 +29,5 @@ scale = Vector2(3.9999986, 3.9999986)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2008547126]
 position = Vector2(202.66661, -1.3333358)
 scale = Vector2(3.9999986, 3.9999986)
+
+[node name="EnemySpawner" type="Node" parent="." unique_id=498407746]
