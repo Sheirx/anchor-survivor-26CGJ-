@@ -41,13 +41,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2dego"]
 
 [node name="Player" type="Node2D" unique_id=1330989066]
+scale = Vector2(6, 6)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=675946307]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_3pdtb")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.02024483
+frame_progress = 0.7528497
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=649698232]
 shape = SubResource("CircleShape2D_2dego")
