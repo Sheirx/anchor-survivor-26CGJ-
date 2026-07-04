@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c7vb0vee6dl47"]
+
+[ext_resource type="Texture2D" uid="uid://befi6hvj4is3m" path="res://assets/placeholders/graphics/ui/progress_bar/bg.png" id="1_276te"]
+[ext_resource type="Script" uid="uid://b03lkh7kpspu1" path="res://ui/hud.gd" id="1_546lt"]
+[ext_resource type="Texture2D" uid="uid://bhvnvx36jrgcg" path="res://assets/placeholders/graphics/ui/progress_bar/progress2.png" id="2_276te"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1764743004]
+script = ExtResource("1_546lt")
+
+[node name="EXP" type="MarginContainer" parent="." unique_id=927671454]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 30
+
+[node name="ExpBar" type="TextureProgressBar" parent="EXP" unique_id=1959104246]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_under = ExtResource("1_276te")
+texture_progress = ExtResource("2_276te")
+
+[node name="EXP2" type="MarginContainer" parent="." unique_id=928138874]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -179.0
+offset_right = 121.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 30
+
+[node name="LevelLabel" type="Label" parent="EXP2" unique_id=626245836]
+layout_mode = 2
+text = "Lv0"

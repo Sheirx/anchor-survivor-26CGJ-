@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://doi71adwegrgy" path="res://enemies/enemy.tscn" id="5_1uhby"]
 [ext_resource type="Script" uid="uid://dowryhnwaigal" path="res://managers/spawn_manager.gd" id="5_bnbiq"]
 [ext_resource type="Script" uid="uid://ck1c63vblrm3q" path="res://managers/wave_manager.gd" id="6_bnbiq"]
+[ext_resource type="PackedScene" uid="uid://c7vb0vee6dl47" path="res://ui/hud.tscn" id="6_rsqw6"]
 [ext_resource type="AudioStream" uid="uid://d2qcv7p7udnvf" path="res://assets/sounds/mixkit-fight-back-1096.mp3" id="7_3xjcq"]
 
 [node name="MainLevel" type="Node2D" unique_id=1259872963]
@@ -15,7 +16,7 @@ script = ExtResource("1_ps8db")
 [node name="World" type="Node2D" parent="." unique_id=1681945530 groups=["world"]]
 
 [node name="Ground" type="Sprite2D" parent="World" unique_id=1008306715]
-position = Vector2(138.50006, 64.00007)
+position = Vector2(-251, -183.99997)
 scale = Vector2(3.3115234, 2.9707034)
 texture = ExtResource("2_3xjcq")
 
@@ -37,7 +38,6 @@ position = Vector2(-245, 115)
 position = Vector2(-245, -166)
 
 [node name="box" type="Sprite2D" parent="." unique_id=1602805346]
-z_index = 1
 texture = ExtResource("4_e2jlu")
 
 [node name="Player" parent="." unique_id=1827598897 instance=ExtResource("2_n6n52")]
@@ -62,3 +62,5 @@ enemy_scene = ExtResource("5_1uhby")
 stream = ExtResource("7_3xjcq")
 autoplay = true
 parameters/looping = true
+
+[node name="HUD" parent="." unique_id=1764743004 instance=ExtResource("6_rsqw6")]
