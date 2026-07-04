@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var hp := 30
 @export var damage := 30
+@onready var damage_sound: AudioStreamPlayer2D = $DamageSound
+
 
 var player_in_area := false
 
@@ -31,6 +33,7 @@ func _on_timer_timeout():
 	if player_in_area:
 		var player = get_tree().get_first_node_in_group("player")
 		if player:
+			damage_sound.play()
 			player.take_damage(damage)
 			
 #掉经验

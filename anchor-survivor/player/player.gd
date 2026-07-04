@@ -5,6 +5,13 @@ extends CharacterBody2D
 @onready var muzzle = $Marker2D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var hit_cd = $HitCooldown
+@onready var level_sound = $LevelUp
+@onready var die_sound: AudioStreamPlayer2D = $DieSound
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+
+
 #经验升级系统
 var exp: int = 0
 var level := 1
@@ -16,6 +23,7 @@ var tick_timer := 0.0
 #血量
 var hp := 100
 var can_be_hit := true
+var can_bullet: bool = true
 
 func _process(delta):
 	tick_timer += delta
@@ -28,11 +36,12 @@ func _ready():
 	shoot_timer.timeout.connect(_shoot)
 
 func _shoot():
-	var bullet = bullet_scene.instantiate()
-	get_tree().current_scene.add_child(bullet)
+	if can_bullet:
+		var bullet = bullet_scene.instantiate()
+		get_tree().current_scene.add_child(bullet)
 
-	bullet.global_position = muzzle.global_position
-	bullet.direction = Vector2.RIGHT  # 先固定方向
+		bullet.global_position = muzzle.global_position
+		bullet.direction = Vector2.RIGHT  # 先固定方向
 
 func take_damage(dmg: int):
 	if not can_be_hit:
@@ -47,6 +56,13 @@ func take_damage(dmg: int):
 		_hit_cooldown()
 		
 func die():
+	if die_sound.playing:
+		return
+	animated_sprite_2d.visible = false
+	collision_shape_2d.queue_free()
+	can_bullet = false
+	die_sound.play()
+	await die_sound.finished
 	queue_free()
 
 
@@ -62,12 +78,15 @@ func add_exp(amount: int):
 	exp += amount
 
 	if exp >= exp_to_next:
+		level_sound.play()
 		level_up()
+		
 		
 func level_up():
 	level += 1
 	exp -= exp_to_next
 	exp_to_next += 5
+	
 
 	show_upgrade_ui()
 	
