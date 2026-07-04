@@ -5,14 +5,24 @@ extends CharacterBody2D
 @onready var muzzle = $Marker2D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var hit_cd = $HitCooldown
+#经验升级系统
 var exp: int = 0
 var level := 1
 var exp_to_next := 10
-
-
-
+#玩家每秒掉血系统
+@export var hp_tick_damage := 1
+@export var hp_tick_interval := 1.0
+var tick_timer := 0.0
+#血量
 var hp := 100
 var can_be_hit := true
+
+func _process(delta):
+	tick_timer += delta
+
+	if tick_timer >= hp_tick_interval:
+		tick_timer = 0.0
+		take_damage(hp_tick_damage)
 
 func _ready():
 	shoot_timer.timeout.connect(_shoot)
@@ -59,4 +69,21 @@ func level_up():
 	exp -= exp_to_next
 	exp_to_next += 5
 
-	print("LEVEL UP:", level)
+	show_upgrade_ui()
+	
+func show_upgrade_ui():
+	get_tree().paused = true
+
+	var ui = preload("res://ui/upgrade_ui.tscn").instantiate()
+	get_tree().root.add_child(ui)
+
+	ui.upgrade_selected.connect(apply_upgrade)
+
+func apply_upgrade(type):
+	match type:
+		"damage":
+			print("damage up")
+		"speed":
+			print("speed up")
+		"hp":
+			hp += 20
