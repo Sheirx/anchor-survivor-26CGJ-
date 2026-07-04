@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://3nybfkyw7el3" path="res://levels/main_scene.gd" id="1_ps8db"]
 [ext_resource type="Texture2D" uid="uid://b5v7smgeqmuq1" path="res://assets/background/ocean.png" id="2_3xjcq"]
 [ext_resource type="PackedScene" uid="uid://cq8vhpi3wsopo" path="res://player/player.tscn" id="2_n6n52"]
-[ext_resource type="Texture2D" uid="uid://tk2hy23txp0b" path="res://assets/background/祭坛.png" id="4_e2jlu"]
+[ext_resource type="Texture2D" uid="uid://d2x72d38xvmxo" path="res://assets/background/祭坛.png" id="4_e2jlu"]
 [ext_resource type="PackedScene" uid="uid://doi71adwegrgy" path="res://enemies/enemy.tscn" id="5_1uhby"]
 [ext_resource type="Script" uid="uid://dowryhnwaigal" path="res://managers/spawn_manager.gd" id="5_bnbiq"]
 [ext_resource type="Script" uid="uid://ck1c63vblrm3q" path="res://managers/wave_manager.gd" id="6_bnbiq"]
@@ -38,12 +38,11 @@ position = Vector2(-245, -166)
 
 [node name="box" type="Sprite2D" parent="." unique_id=1602805346]
 z_index = 1
-rotation = 0.7853982
 texture = ExtResource("4_e2jlu")
 
 [node name="Player" parent="." unique_id=1827598897 instance=ExtResource("2_n6n52")]
 z_index = 1
-position = Vector2(47, -48)
+position = Vector2(2, -9.999996)
 scale = Vector2(3.9999986, 3.9999986)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2008547126]
