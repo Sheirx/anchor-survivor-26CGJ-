@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cn1e7od7xvng5" path="res://assets/placeholders/graphics/ground/stones.png" id="1_6psl4"]
 [ext_resource type="Script" uid="uid://3nybfkyw7el3" path="res://levels/main_scene.gd" id="1_ps8db"]
 [ext_resource type="PackedScene" uid="uid://cq8vhpi3wsopo" path="res://player/player.tscn" id="2_n6n52"]
-[ext_resource type="Texture2D" uid="uid://rpel4yswci5o" path="res://assets/placeholders/graphics/car/main.png" id="3_n6n52"]
+[ext_resource type="PackedScene" uid="uid://doi71adwegrgy" path="res://enemies/enemy.tscn" id="5_1uhby"]
 
 [node name="MainLevel" type="Node2D" unique_id=1259872963]
 script = ExtResource("1_ps8db")
@@ -15,12 +15,22 @@ position = Vector2(-21.000004, 78.99998)
 scale = Vector2(10, 10)
 texture = ExtResource("1_6psl4")
 
-[node name="Main" type="Sprite2D" parent="World" unique_id=534265217]
-position = Vector2(408.99997, -31.000015)
-scale = Vector2(0.21907753, 0.18035187)
-texture = ExtResource("3_n6n52")
-
 [node name="EnemyContainer" type="Node2D" parent="World" unique_id=1486151310]
+
+[node name="Enemy" parent="World" unique_id=319671629 instance=ExtResource("5_1uhby")]
+position = Vector2(391, 11)
+
+[node name="Enemy2" parent="World" unique_id=249523292 instance=ExtResource("5_1uhby")]
+position = Vector2(264, 229)
+
+[node name="Enemy3" parent="World" unique_id=1301875415 instance=ExtResource("5_1uhby")]
+position = Vector2(7, 219)
+
+[node name="Enemy4" parent="World" unique_id=1941820269 instance=ExtResource("5_1uhby")]
+position = Vector2(-245, 115)
+
+[node name="Enemy5" parent="World" unique_id=1697563612 instance=ExtResource("5_1uhby")]
+position = Vector2(-245, -166)
 
 [node name="Player" parent="." unique_id=1827598897 instance=ExtResource("2_n6n52")]
 position = Vector2(3.0517578e-05, -2.9802322e-06)
@@ -31,3 +41,5 @@ position = Vector2(202.66661, -1.3333358)
 scale = Vector2(3.9999986, 3.9999986)
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=498407746]
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=1329491511]
