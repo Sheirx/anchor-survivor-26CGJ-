@@ -1,11 +1,45 @@
 extends Node
 
+signal wave_changed(wave: int, burst_count: int)
 
-# Called when the node enters the scene tree for the first time.
+var wave: int = 1
+var kill_count: int = 0
+var kills_to_next_wave: int = 7
+
+var spawn_interval: float = 1.0
+var max_enemies: int = 12
+
+var min_radius: float = 220.0
+var max_radius: float = 420.0
+
+var min_radius_limit: float = 60.0
+
+var spawn_interval_min: float = 0.18
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	add_to_group("wave_manager")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func add_kill() -> void:
+	kill_count += 1
+	if kill_count >= kills_to_next_wave:
+		next_wave()
+
+
+func next_wave() -> void:
+	wave += 1
+	kill_count = 0
+	kills_to_next_wave = int(ceil(kills_to_next_wave * 1.25))
+
+	spawn_interval = max(spawn_interval_min, spawn_interval * 0.9)
+	max_enemies += 3
+
+	min_radius = max(min_radius_limit, min_radius - 10.0)
+	max_radius = max(min_radius + 80.0, max_radius - 5.0)
+
+	var burst_count: int = 10 + int(wave * 0.5)
+
+	print("WAVE:", wave, "burst:", burst_count)
+
+	emit_signal("wave_changed", wave, burst_count)

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cq8vhpi3wsopo" path="res://player/player.tscn" id="2_n6n52"]
 [ext_resource type="PackedScene" uid="uid://doi71adwegrgy" path="res://enemies/enemy.tscn" id="5_1uhby"]
 [ext_resource type="Script" uid="uid://dowryhnwaigal" path="res://managers/spawn_manager.gd" id="5_bnbiq"]
+[ext_resource type="Script" uid="uid://ck1c63vblrm3q" path="res://managers/wave_manager.gd" id="6_bnbiq"]
 
 [node name="MainLevel" type="Node2D" unique_id=1259872963]
 script = ExtResource("1_ps8db")
@@ -42,6 +43,9 @@ position = Vector2(202.66661, -1.3333358)
 scale = Vector2(3.9999986, 3.9999986)
 
 [node name="Projectiles" type="Node2D" parent="." unique_id=1329491511]
+
+[node name="WaveManager" type="Node" parent="." unique_id=98759515]
+script = ExtResource("6_bnbiq")
 
 [node name="SpawnManager" type="Node" parent="." unique_id=498407746]
 script = ExtResource("5_bnbiq")

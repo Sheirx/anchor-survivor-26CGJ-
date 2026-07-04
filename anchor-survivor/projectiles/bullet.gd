@@ -8,7 +8,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print("hit",body.name)
 	if body.has_method("take_damage"):
 		body.take_damage(10)
 	queue_free()
