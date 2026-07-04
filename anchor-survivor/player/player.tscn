@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bux3erpqlbdwa" path="res://projectiles/bullet.tscn" id="2_g1dw6"]
 [ext_resource type="AudioStream" uid="uid://co4aspjg06bb5" path="res://assets/sounds/mixkit-fantasy-game-success-notification-270.wav" id="4_yw30f"]
 [ext_resource type="AudioStream" uid="uid://dr2qajjj11d0r" path="res://assets/sounds/mixkit-arcade-retro-game-over-213.wav" id="5_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://befi6hvj4is3m" path="res://assets/placeholders/graphics/ui/progress_bar/bg.png" id="6_boad6"]
+[ext_resource type="Texture2D" uid="uid://soxim1gq72mr" path="res://assets/placeholders/graphics/ui/progress_bar/progress.png" id="7_rgyib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
 atlas = ExtResource("1_oul6g")
@@ -76,5 +78,22 @@ stream = ExtResource("4_yw30f")
 
 [node name="DieSound" type="AudioStreamPlayer2D" parent="." unique_id=336570106]
 stream = ExtResource("5_qjkh3")
+
+[node name="HPBar" type="Node2D" parent="." unique_id=915144161]
+position = Vector2(0, 10)
+scale = Vector2(0.1, 0.1)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HPBar" unique_id=1687305310]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 40.0
+grow_horizontal = 2
+value = 59.0
+texture_under = ExtResource("6_boad6")
+texture_progress = ExtResource("7_rgyib")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
