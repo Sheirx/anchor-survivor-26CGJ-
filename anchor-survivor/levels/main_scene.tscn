@@ -4,11 +4,12 @@
 [ext_resource type="Script" uid="uid://3nybfkyw7el3" path="res://levels/main_scene.gd" id="1_ps8db"]
 [ext_resource type="PackedScene" uid="uid://cq8vhpi3wsopo" path="res://player/player.tscn" id="2_n6n52"]
 [ext_resource type="PackedScene" uid="uid://doi71adwegrgy" path="res://enemies/enemy.tscn" id="5_1uhby"]
+[ext_resource type="Script" uid="uid://dowryhnwaigal" path="res://managers/spawn_manager.gd" id="5_bnbiq"]
 
 [node name="MainLevel" type="Node2D" unique_id=1259872963]
 script = ExtResource("1_ps8db")
 
-[node name="World" type="Node2D" parent="." unique_id=1681945530]
+[node name="World" type="Node2D" parent="." unique_id=1681945530 groups=["world"]]
 
 [node name="Ground" type="Sprite2D" parent="World" unique_id=1008306715]
 position = Vector2(-21.000004, 78.99998)
@@ -40,6 +41,8 @@ scale = Vector2(3.9999986, 3.9999986)
 position = Vector2(202.66661, -1.3333358)
 scale = Vector2(3.9999986, 3.9999986)
 
-[node name="EnemySpawner" type="Node" parent="." unique_id=498407746]
-
 [node name="Projectiles" type="Node2D" parent="." unique_id=1329491511]
+
+[node name="SpawnManager" type="Node" parent="." unique_id=498407746]
+script = ExtResource("5_bnbiq")
+enemy_scene = ExtResource("5_1uhby")
