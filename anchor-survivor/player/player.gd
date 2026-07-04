@@ -25,6 +25,9 @@ var hp := 100
 var can_be_hit := true
 var can_bullet: bool = true
 
+var bullet_damage := 10
+var move_speed := 200
+
 func _process(delta):
 	tick_timer += delta
 
@@ -41,6 +44,8 @@ func _shoot():
 		get_tree().current_scene.add_child(bullet)
 
 		bullet.global_position = muzzle.global_position
+		bullet.damage = bullet_damage
+		bullet.speed = move_speed
 		bullet.direction = Vector2.RIGHT  # 先固定方向
 
 func take_damage(dmg: int):
@@ -86,8 +91,6 @@ func level_up():
 	level += 1
 	exp -= exp_to_next
 	exp_to_next += 5
-	
-
 	show_upgrade_ui()
 	
 func show_upgrade_ui():
@@ -101,8 +104,13 @@ func show_upgrade_ui():
 func apply_upgrade(type):
 	match type:
 		"damage":
-			print("damage up")
+			bullet_damage += 5
+			print("Damage:", bullet_damage)
+
 		"speed":
-			print("speed up")
+			move_speed += 100
+			print("Speed:", move_speed)
+
 		"hp":
 			hp += 20
+			print("HP:", hp)

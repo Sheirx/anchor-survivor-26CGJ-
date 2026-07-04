@@ -41,8 +41,7 @@ func drop_exp():
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		player.add_exp(5)
-		
-		
+
 #波次系统
 func on_enemy_killed():
 	var wave_manager = get_tree().get_first_node_in_group("wave_manager")
