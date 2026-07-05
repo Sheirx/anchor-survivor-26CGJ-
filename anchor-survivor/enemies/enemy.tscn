@@ -1,14 +1,7 @@
 [gd_scene format=3 uid="uid://doi71adwegrgy"]
 
 [ext_resource type="Script" uid="uid://bseyrmyujaje4" path="res://enemies/enemy.gd" id="1_fw1ev"]
-[ext_resource type="Texture2D" uid="uid://4gnwvbyml345" path="res://enemies/graphics/水母.png" id="2_orwns"]
 [ext_resource type="AudioStream" uid="uid://bde51aafacsr7" path="res://assets/sounds/mixkit-boxer-getting-hit-2055.wav" id="3_orwns"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnbiq"]
-size = Vector2(127, 125)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xjcq"]
-size = Vector2(95.11763, 136.47057)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=319671629 groups=["enemy"]]
 z_index = 2
@@ -19,7 +12,6 @@ script = ExtResource("1_fw1ev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2131567227]
 position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_bnbiq")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2021369267]
 collision_layer = 4
@@ -28,11 +20,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2127097497]
 position = Vector2(-0.5000001, -3.5294127)
 scale = Vector2(1.0000002, 1.0000002)
-shape = SubResource("RectangleShape2D_3xjcq")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1784424353]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=10533941]
 scale = Vector2(0.12, 0.12)
-texture = ExtResource("2_orwns")
 
 [node name="DamageTimer" type="Timer" parent="." unique_id=817919689]
 wait_time = 0.06
