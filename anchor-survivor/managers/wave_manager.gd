@@ -7,7 +7,7 @@ var kill_count: int = 0
 var kills_to_next_wave: int = 4
 
 var spawn_interval: float = 1.0
-var max_enemies: int = 100
+var max_enemies: int = 1000
 
 var min_radius: float = 70
 var max_radius: float = 400
@@ -37,7 +37,7 @@ func next_wave() -> void:
 	min_radius = max(min_radius_limit, min_radius - 10.0)
 	max_radius = max(min_radius + 80.0, max_radius - 5.0)
 
-	var burst_count: int = 20 + int(wave * 4)
+	var burst_count: int = 50 + int(wave * 4)
 
 	print("WAVE:", wave, "burst:", burst_count)
 
