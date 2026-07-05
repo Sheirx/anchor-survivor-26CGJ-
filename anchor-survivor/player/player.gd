@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var bullet_scene: PackedScene
-@onready var muzzle = $Marker2D
+@onready var muzzles = $Muzzles.get_children()
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var hit_cd = $HitCooldown
 @onready var level_sound = $LevelUp
@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var texture_progress_bar: TextureProgressBar = $HPBar/TextureProgressBar
 @onready var game_over_ui = preload("res://dead/dead.tscn")
+
+var bullet_count = 1
 
 
 #经验升级系统
@@ -37,6 +39,8 @@ func _ready():
 
 	# ✔ 初始化血条
 	_sync_hp_bar()
+	
+	
 
 
 func _process(delta):
@@ -51,11 +55,15 @@ func _process(delta):
 # 子弹
 # =========================
 func _shoot():
-	if can_bullet:
+	if !can_bullet:
+		return
+		
+
+	for i in range(bullet_count):
 		var bullet = bullet_scene.instantiate()
 		get_tree().current_scene.add_child(bullet)
 
-		bullet.global_position = muzzle.global_position
+		bullet.global_position = muzzles[i].global_position
 		bullet.damage = bullet_damage
 		bullet.speed = move_speed
 		bullet.direction = Vector2.RIGHT
@@ -156,6 +164,10 @@ func apply_upgrade(type):
 			hp += 20
 			_sync_hp_bar()  # ✔ 加血后同步UI
 			print("HP:", hp)
+			
+		"bullet":
+			bullet_count = min(bullet_count + 1, muzzles.size())
+			
 			
 func game_over():
 	get_tree().paused = true
