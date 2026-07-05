@@ -124,10 +124,12 @@ func _on_hit_cooldown_timeout():
 # =========================
 func add_exp(amount: int):
 	exp += amount
+	hp = min(100,hp+2)
 
 	if exp >= exp_to_next:
 		level_sound.play()
 		level_up()
+		
 
 
 func level_up():
@@ -161,7 +163,7 @@ func apply_upgrade(type):
 			print("Speed:", move_speed)
 
 		"hp":
-			hp += 20
+			hp = min(100,hp+20)
 			_sync_hp_bar()  # ✔ 加血后同步UI
 			print("HP:", hp)
 			
