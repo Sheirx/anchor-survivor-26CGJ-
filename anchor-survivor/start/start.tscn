@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwpr6wlhj2fiq" path="res://start/start.gd" id="1_275hl"]
 [ext_resource type="FontFile" uid="uid://bcps4mag1weyx" path="res://assets/placeholders/fonts/Better VCR 9.0.1.ttf" id="2_pgi65"]
+[ext_resource type="AudioStream" uid="uid://ba4vw2iilohlt" path="res://assets/sounds/mixkit-cool-impact-movie-trailer-2909.wav" id="3_pgi65"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_edcdb"]
 font = ExtResource("2_pgi65")
@@ -57,3 +58,7 @@ theme_override_fonts/font = ExtResource("2_pgi65")
 theme_override_font_sizes/font_size = 30
 text = "Press to Start
 "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1821656962]
+stream = ExtResource("3_pgi65")
+autoplay = true

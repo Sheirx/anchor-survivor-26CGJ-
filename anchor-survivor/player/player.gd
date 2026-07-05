@@ -130,6 +130,10 @@ func level_up():
 
 
 func show_upgrade_ui():
+	# 通知主场景停止拖拽
+	if get_parent().has_method("stop_drag"):
+		get_parent().stop_drag()
+
 	get_tree().paused = true
 
 	var ui = preload("res://ui/upgrade_ui.tscn").instantiate()
