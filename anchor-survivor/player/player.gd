@@ -21,7 +21,7 @@ var level := 1
 var exp_to_next := 10
 
 #玩家每秒掉血系统
-@export var hp_tick_damage := 1
+@export var hp_tick_damage := 5
 @export var hp_tick_interval := 1.0
 var tick_timer := 0.0
 
