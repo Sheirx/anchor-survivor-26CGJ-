@@ -22,7 +22,6 @@ Gamemanager="*uid://d0vrmmi3bjt2f"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

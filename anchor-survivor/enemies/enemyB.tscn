@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://doi71adwegrgy" path="res://enemies/enemy.tscn" id="1_l0ir2"]
 [ext_resource type="Texture2D" uid="uid://cigqgxi2m72uw" path="res://enemies/graphics/spritesheet_2.png" id="2_fkqes"]
+[ext_resource type="Script" uid="uid://dylbug1154m0i" path="res://enemies/enemy_b.gd" id="2_yxhr8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fkqes"]
 radius = 6.3860197
@@ -299,6 +300,7 @@ animations = [{
 
 [node name="EnemyB" unique_id=319671629 instance=ExtResource("1_l0ir2")]
 scale = Vector2(4, 4)
+script = ExtResource("2_yxhr8")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=2131567227]
 shape = SubResource("CircleShape2D_fkqes")

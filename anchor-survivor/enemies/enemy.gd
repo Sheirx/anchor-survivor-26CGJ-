@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name ParentEnemy
 
 @export var hp := 30
 @export var damage := 30
