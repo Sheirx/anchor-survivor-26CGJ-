@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b072lkkvn2u7y"]
+
+[ext_resource type="Script" uid="uid://bwpr6wlhj2fiq" path="res://start/start.gd" id="1_275hl"]
+[ext_resource type="FontFile" uid="uid://bcps4mag1weyx" path="res://assets/placeholders/fonts/Better VCR 9.0.1.ttf" id="2_pgi65"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_edcdb"]
+font = ExtResource("2_pgi65")
+font_size = 60
+
+[sub_resource type="Theme" id="Theme_edcdb"]
+
+[node name="start" type="Control" unique_id=734790630]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_275hl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=719426111]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07450981, 0.23921569, 0.44313726, 1)
+
+[node name="Label" type="Label" parent="." unique_id=305153980]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 135.0
+offset_right = 927.0
+offset_bottom = 211.0
+text = "Anchor Survivor"
+label_settings = SubResource("LabelSettings_edcdb")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1599282539]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = 55.0
+offset_right = 50.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme = SubResource("Theme_edcdb")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("2_pgi65")
+theme_override_font_sizes/font_size = 30
+text = "Press to Start
+"

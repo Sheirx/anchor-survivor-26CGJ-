@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://e0bkb3aqlb24"]
+
+[ext_resource type="Script" uid="uid://dy7epxh1vo44c" path="res://dead/dead.gd" id="1_53i1f"]
+[ext_resource type="FontFile" uid="uid://bcps4mag1weyx" path="res://assets/placeholders/fonts/Better VCR 9.0.1.ttf" id="1_suxji"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_edcdb"]
+font = ExtResource("1_suxji")
+font_size = 35
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bkk3a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edcdb"]
+
+[node name="Dead" type="Control" unique_id=1362008981]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 334.0
+offset_top = 150.0
+offset_right = -334.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_53i1f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2116188998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07450981, 0.23921569, 0.44313726, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1866232979]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 95.0
+offset_right = 427.0
+offset_bottom = 140.0
+text = "Your are dead!"
+label_settings = SubResource("LabelSettings_edcdb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="." unique_id=1684198596]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 219.0
+offset_right = 173.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("1_suxji")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_bkk3a")
+text = "Exit"
+
+[node name="Restart" type="Button" parent="." unique_id=1875321384]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 219.0
+offset_right = 392.0
+offset_bottom = 252.0
+theme_override_fonts/font = ExtResource("1_suxji")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_edcdb")
+text = "Restart"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
