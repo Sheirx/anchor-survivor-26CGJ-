@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7vb0vee6dl47" path="res://ui/hud.tscn" id="6_rsqw6"]
 [ext_resource type="AudioStream" uid="uid://d2qcv7p7udnvf" path="res://assets/sounds/mixkit-fight-back-1096.mp3" id="7_3xjcq"]
 [ext_resource type="PackedScene" uid="uid://ctjpx6g5c8k2p" path="res://enemies/enemAy.tscn" id="7_rsqw6"]
+[ext_resource type="PackedScene" uid="uid://chflwqsgps68o" path="res://enemies/enemyB.tscn" id="8_oej6j"]
 
 [node name="MainLevel" type="Node2D" unique_id=1259872963]
 script = ExtResource("1_ps8db")
@@ -43,7 +44,8 @@ script = ExtResource("6_bnbiq")
 
 [node name="SpawnManager" type="Node" parent="." unique_id=498407746]
 script = ExtResource("5_bnbiq")
-enemy_scene = ExtResource("7_rsqw6")
+enemy_a_scene = ExtResource("7_rsqw6")
+enemy_b_scene = ExtResource("8_oej6j")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=710614040]
 stream = ExtResource("7_3xjcq")

@@ -1,6 +1,7 @@
 extends Node
 
-@export var enemy_scene: PackedScene
+@export var enemy_a_scene: PackedScene
+@export var enemy_b_scene: PackedScene
 
 var timer: float = 0.0
 
@@ -40,7 +41,11 @@ func _do_spawn_enemy(player_pos: Vector2, world: Node, wm: Node) -> void:
 	if pos == Vector2.INF:
 		return
 
-	var enemy = enemy_scene.instantiate()
+	var wm2 = get_tree().get_first_node_in_group("wave_manager")
+	var wave = wm2.wave if wm2 != null else 1
+
+	var scene = _get_enemy_scene(wave)
+	var enemy = scene.instantiate()
 	world.add_child(enemy)
 	enemy.global_position = pos
 
@@ -58,8 +63,10 @@ func _on_wave_changed(_wave: int, burst_count: int) -> void:
 		if get_tree().get_nodes_in_group("enemy").size() >= wm.max_enemies:
 			break
 
-		_spawn_enemy_deferred(player.global_position, world, wm)
+	var wave = wm.wave
 
+	var scene = _get_enemy_scene(wave)
+	_spawn_enemy_deferred_with_scene(scene, player.global_position, world, wm)
 
 func _find_position(center: Vector2, wm: Node) -> Vector2:
 	var best_pos := Vector2.INF
@@ -97,3 +104,27 @@ func _score(pos: Vector2) -> float:
 		score += d
 
 	return score
+	
+func _get_enemy_scene(wave: int) -> PackedScene:
+	if wave <= 2:
+		return enemy_a_scene
+	elif wave <= 5:
+		if randf() < 0.5:
+			return enemy_a_scene  
+		else:
+			return enemy_b_scene	
+	else:
+		return enemy_b_scene
+
+func _spawn_enemy_deferred_with_scene(scene: PackedScene, player_pos: Vector2, world: Node, wm: Node) -> void:
+	call_deferred("_do_spawn_enemy_with_scene", scene, player_pos, world, wm)
+
+func _do_spawn_enemy_with_scene(scene: PackedScene, player_pos: Vector2, world: Node, wm: Node) -> void:
+	var pos := _find_position(player_pos, wm)
+
+	if pos == Vector2.INF:
+		return
+
+	var enemy = scene.instantiate()
+	world.add_child(enemy)
+	enemy.global_position = pos
