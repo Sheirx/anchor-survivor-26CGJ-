@@ -4,17 +4,16 @@ signal wave_changed(wave: int, burst_count: int)
 
 var wave: int = 1
 var kill_count: int = 0
-var kills_to_next_wave: int = 7
+var kills_to_next_wave: int = 4
 
 var spawn_interval: float = 1.0
-var max_enemies: int = 12
+var max_enemies: int = 100
 
-var min_radius: float = 220.0
-var max_radius: float = 420.0
+var min_radius: float = 70
+var max_radius: float = 400
+var min_radius_limit: float = 15
 
-var min_radius_limit: float = 60.0
-
-var spawn_interval_min: float = 0.18
+var spawn_interval_min: float = 0.1
 
 
 func _ready() -> void:
@@ -38,7 +37,7 @@ func next_wave() -> void:
 	min_radius = max(min_radius_limit, min_radius - 10.0)
 	max_radius = max(min_radius + 80.0, max_radius - 5.0)
 
-	var burst_count: int = 10 + int(wave * 0.5)
+	var burst_count: int = 20 + int(wave * 4)
 
 	print("WAVE:", wave, "burst:", burst_count)
 
