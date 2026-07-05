@@ -1,19 +1,39 @@
-extends Control
+extends CanvasLayer
+
+@onready var exit: Button = $DeadUI/Exit
+@onready var restart: Button = $DeadUI/Restart
 
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	#初始隐藏
+	visible = false
+	
+	#确保按钮焦点
+	exit.focus_mode = Control.FOCUS_NONE
+	restart.focus_mode = Control.FOCUS_NONE
+	
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+func show_game_over():
+	print("show")
+	visible = true
+	get_tree().paused = true
+	
+	#设置按钮焦点
+	restart.grab_focus()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func hide_game_over():
+	visible = false
+	get_tree().paused = false
 
 
 func _on_exit_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://start/start.tscn")
 
 
 func _on_restart_pressed() -> void:
-	pass # Replace with function body.
+	hide_game_over()
+	get_tree().reload_current_scene()

@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var texture_progress_bar: TextureProgressBar = $HPBar/TextureProgressBar
-
+@onready var game_over_ui = preload("res://dead/dead.tscn")
 
 
 #经验升级系统
@@ -93,9 +93,10 @@ func die():
 	collision_shape_2d.queue_free()
 	can_bullet = false
 	die_sound.play()
-
 	await die_sound.finished
-	queue_free()
+	game_over()
+	
+	#queue_free()
 
 
 # =========================
@@ -151,3 +152,13 @@ func apply_upgrade(type):
 			hp += 20
 			_sync_hp_bar()  # ✔ 加血后同步UI
 			print("HP:", hp)
+			
+func game_over():
+	get_tree().paused = true
+
+	var ui_instance = game_over_ui.instantiate()
+
+	# 不要 add_child(ui_instance)
+	get_tree().current_scene.add_child(ui_instance)
+
+	ui_instance.show_game_over()

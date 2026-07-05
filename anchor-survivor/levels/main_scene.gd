@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var world = $World
+@onready var player: CharacterBody2D = $Player
 
 var is_dragging = false
 var drag_start_mouse: Vector2
