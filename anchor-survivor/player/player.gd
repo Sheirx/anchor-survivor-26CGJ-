@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var hit_cd = $HitCooldown
 @onready var level_sound = $LevelUp
 @onready var die_sound: AudioStreamPlayer2D = $DieSound
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: Sprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var texture_progress_bar: TextureProgressBar = $HPBar/TextureProgressBar
 @onready var game_over_ui = preload("res://dead/dead.tscn")

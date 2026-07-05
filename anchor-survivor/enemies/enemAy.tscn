@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://dg3qkiuwk0w7y" path="res://enemies/graphics/spritesheet_1.png" id="2_bbq34"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hph2d"]
-radius = 61.67647
-height = 201.35295
+radius = 20.0
+height = 70.58824
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mei6n"]
-radius = 61.67646
-height = 209.41173
+radius = 20.499996
+height = 75.294106
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0x2u"]
 atlas = ExtResource("2_bbq34")
@@ -104,15 +104,17 @@ animations = [{
 }]
 
 [node name="EnemyA" unique_id=319671629 instance=ExtResource("1_v8y5c")]
+metadata/_edit_horizontal_guides_ = [-117.0]
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=2131567227]
+position = Vector2(-1.1764705, -2.3529413)
 shape = SubResource("CapsuleShape2D_hph2d")
 
 [node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(2021369267) index="0" unique_id=2127097497]
 shape = SubResource("CapsuleShape2D_mei6n")
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=10533941]
-scale = Vector2(1, 1)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_v8y5c")
 animation = &"idle"
 autoplay = "idle"

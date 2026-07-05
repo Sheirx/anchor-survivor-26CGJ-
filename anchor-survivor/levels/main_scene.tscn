@@ -23,6 +23,8 @@ texture = ExtResource("2_3xjcq")
 [node name="EnemyContainer" type="Node2D" parent="World" unique_id=1486151310]
 
 [node name="box" type="Sprite2D" parent="." unique_id=1602805346]
+position = Vector2(1.0000001, 6.999998)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("4_e2jlu")
 
 [node name="Player" parent="." unique_id=1827598897 instance=ExtResource("2_n6n52")]

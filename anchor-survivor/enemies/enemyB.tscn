@@ -298,7 +298,7 @@ animations = [{
 }]
 
 [node name="EnemyB" unique_id=319671629 instance=ExtResource("1_l0ir2")]
-scale = Vector2(8, 8)
+scale = Vector2(3, 3)
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=2131567227]
 shape = SubResource("CircleShape2D_fkqes")
