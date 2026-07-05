@@ -26,3 +26,10 @@ offset_top = 62.0
 offset_right = 29.0
 offset_bottom = 93.0
 text = "hp"
+
+[node name="ButtonD" type="Button" parent="Panel" unique_id=65525139]
+offset_left = 40.6
+offset_top = 63.599995
+offset_right = 93.6
+offset_bottom = 94.59999
+text = "bullet"

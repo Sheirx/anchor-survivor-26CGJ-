@@ -28,9 +28,6 @@ texture = ExtResource("3_boad6")
 position = Vector2(0, -1.5)
 shape = SubResource("CapsuleShape2D_bbq34")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=642528802]
-position = Vector2(9.5, 0.25)
-
 [node name="ShootTimer" type="Timer" parent="." unique_id=1509237141]
 wait_time = 0.6
 autostart = true
@@ -63,5 +60,19 @@ value = 59.0
 texture_under = ExtResource("6_boad6")
 texture_progress = ExtResource("7_rgyib")
 metadata/_edit_use_anchors_ = true
+
+[node name="Muzzles" type="Node" parent="." unique_id=1983113063]
+
+[node name="Marker2D" type="Marker2D" parent="Muzzles" unique_id=642528802]
+position = Vector2(19, -8)
+scale = Vector2(2, 2)
+
+[node name="Marker2D2" type="Marker2D" parent="Muzzles" unique_id=306331049]
+position = Vector2(19, -23)
+scale = Vector2(2, 2)
+
+[node name="Marker2D3" type="Marker2D" parent="Muzzles" unique_id=90099171]
+position = Vector2(19, 8)
+scale = Vector2(2, 2)
 
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
